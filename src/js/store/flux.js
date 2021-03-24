@@ -17,8 +17,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			planets: [],
 			characters: [],
 			favPlanet: [false, false, false, false, false, false, false, false, false, false],
-			favChar: [true, false, false, true, false, false, false, false, false, false],
-			favorites: [1, 2, 3]
+			favChar: [false, false, false, false, false, false, false, false, false, false],
+			favorites: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -64,18 +64,58 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ demo: demo });
 			},
 
-			updateFavChar: index => {
+			updateFavChar: (index, name) => {
+				//Section below will toggle the like symbol
 				const store = getStore();
-
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
 				const favList = store.favChar.map((elm, i) => {
 					if (i === index) elm = !elm;
 					return elm;
 				});
-
-				//reset the global store
 				setStore({ favChar: favList });
+
+				//Section below will add/delete from favorites list
+				if (store.favChar[index]) {
+					let newFavArray = store.favorites;
+					newFavArray.push({ name: name, index: index });
+					setStore({ favorites: newFavArray });
+					console.log("add");
+				} else {
+					let newFavArray;
+					newFavArray = store.favorites.filter(namesList => namesList.name !== name);
+					setStore({ favorites: newFavArray });
+					console.log("delete");
+				}
+			},
+			updateFavPlanet: (index, name) => {
+				//Section below will toggle the like symbol
+				const store = getStore();
+				const favList = store.favPlanet.map((elm, i) => {
+					if (i === index) elm = !elm;
+					return elm;
+				});
+				setStore({ favPlanet: favList });
+
+				//Section below will add/delete from favorites list
+				if (store.favPlanet[index]) {
+					let newFavArray = store.favorites;
+					newFavArray.push({ name: name, index: index });
+					setStore({ favorites: newFavArray });
+					console.log("add");
+				} else {
+					let newFavArray;
+					newFavArray = store.favorites.filter(namesList => namesList.name !== name);
+					setStore({ favorites: newFavArray });
+					console.log("delete");
+				}
+			},
+			updateFavList: index => {
+				//Section below will toggle the like symbol
+				const store = getStore();
+				const favList = store.favPlanet.map((elm, i) => {
+					if (i === index) elm = !elm;
+					return elm;
+				});
+				setStore({ favPlanet: favList });
 			}
 		}
 	};

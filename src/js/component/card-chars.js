@@ -21,12 +21,12 @@ const CardCharacters = props => {
 					<i
 						className="far fa-heart"
 						style={store.favChar[props.favStatus] === true ? { display: "none" } : { display: "inline" }}
-						onClick={() => actions.updateFavChar(props.favStatus)}
+						onClick={() => actions.updateFavChar(props.favStatus, props.name)}
 					/>
 					<i
 						className="fas fa-heart"
 						style={store.favChar[props.favStatus] === false ? { display: "none" } : { display: "inline" }}
-						onClick={() => actions.updateFavChar(props.favStatus)}
+						onClick={() => actions.updateFavChar(props.favStatus, props.name)}
 					/>
 				</div>
 			</div>
