@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
+import { Context } from "../store/appContext";
 
 const CardCharacters = props => {
+	const { store, actions } = useContext(Context);
+	//console.log(store.favChar[props.favStatus]);
 	return (
 		<div>
 			<div className="card">
@@ -16,15 +19,25 @@ const CardCharacters = props => {
 					<a href="#" className="btn btn-primary">
 						Details...
 					</a>
-					<i className="far fa-heart" />
-					<i className="fas fa-heart" />
+					<i
+						className="far fa-heart"
+						style={store.favChar[props.favStatus] === true ? { display: "none" } : { display: "inline" }}
+						onClick={actions.updateFavChar(props.favStatus)}
+					/>
+					<i
+						className="fas fa-heart"
+						style={store.favChar[props.favStatus] === false ? { display: "none" } : { display: "inline" }}
+						onClick={actions.updateFavChar(props.favStatus)}
+					/>
 				</div>
 			</div>
 		</div>
 	);
 };
 CardCharacters.propTypes = {
+	key: PropTypes.string,
 	name: PropTypes.string,
-	gender: PropTypes.string
+	gender: PropTypes.string,
+	favStatus: PropTypes.number
 };
 export default CardCharacters;

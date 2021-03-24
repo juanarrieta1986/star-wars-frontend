@@ -16,7 +16,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			],
 			planets: [],
 			characters: [],
-			favorites: []
+			favPlanet: [false, false, false, false, false, false, false, false, false, false],
+			favChar: [true, false, false, true, false, false, false, false, false, false],
+			favorites: [1, 2, 3]
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -62,8 +64,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ demo: demo });
 			},
 
-			updateFavorites: () => {
+			updateFavChar: index => {
 				const store = getStore();
+
+				//we have to loop the entire demo array to look for the respective index
+				//and change its color
+				const favList = store.favChar.map((elm, i) => {
+					if (i === index) elm = !elm;
+					return elm;
+				});
+
+				//reset the global store
+				//setStore({ favChar: favList });
 			}
 		}
 	};

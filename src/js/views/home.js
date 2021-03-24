@@ -22,9 +22,10 @@ export const Home = () => {
 			</div>
 			<div className="scrolling-wrapper row flex-row flex-nowrap mt-4 pb-4 pt-2">
 				{store.characters.map((item, index) => {
+					console.log(index);
 					return (
 						<div className="col" key={index}>
-							<CardCharacters key={index} name={item.name} surface={item.gender} />
+							<CardCharacters key={index} name={item.name} surface={item.gender} favStatus={index} />
 						</div>
 					);
 				})}
