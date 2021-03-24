@@ -4,7 +4,6 @@ import { Context } from "../store/appContext";
 
 const CardCharacters = props => {
 	const { store, actions } = useContext(Context);
-	//console.log(store.favChar[props.favStatus]);
 	return (
 		<div>
 			<div className="card">
@@ -22,12 +21,12 @@ const CardCharacters = props => {
 					<i
 						className="far fa-heart"
 						style={store.favChar[props.favStatus] === true ? { display: "none" } : { display: "inline" }}
-						onClick={actions.updateFavChar(props.favStatus)}
+						onClick={() => actions.updateFavChar(props.favStatus)}
 					/>
 					<i
 						className="fas fa-heart"
 						style={store.favChar[props.favStatus] === false ? { display: "none" } : { display: "inline" }}
-						onClick={actions.updateFavChar(props.favStatus)}
+						onClick={() => actions.updateFavChar(props.favStatus)}
 					/>
 				</div>
 			</div>

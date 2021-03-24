@@ -75,7 +75,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				});
 
 				//reset the global store
-				//setStore({ favChar: favList });
+				setStore({ favChar: favList });
 			}
 		}
 	};
