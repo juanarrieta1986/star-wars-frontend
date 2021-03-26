@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { Context } from "../store/appContext";
+import { Link } from "react-router-dom";
 
 const CardCharacters = props => {
 	const { store, actions } = useContext(Context);
+	console.log(props.favStatus);
 	return (
 		<div>
 			<div className="card">
@@ -15,9 +17,13 @@ const CardCharacters = props => {
 				<div className="card-body">
 					<h5 className="card-title">{props.name}</h5>
 					<p className="card-text">{props.gender}</p>
-					<a href="#" className="btn btn-primary">
-						Details...
-					</a>
+
+					<Link to={"/single/" + props.favStatus}>
+						<a href="#" className="btn btn-primary">
+							Details...
+						</a>
+					</Link>
+
 					<i
 						className="far fa-heart"
 						style={store.favChar[props.favStatus] === true ? { display: "none" } : { display: "inline" }}
