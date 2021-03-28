@@ -76,7 +76,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				//Section below will add/delete from favorites list
 				if (store.favChar[index]) {
 					let newFavArray = store.favorites;
-					newFavArray.push({ name: name, index: index });
+					newFavArray.push({ name: name, index: index, cardType: "characters" });
 					setStore({ favorites: newFavArray });
 					console.log("add");
 				} else {
@@ -98,7 +98,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				//Section below will add/delete from favorites list
 				if (store.favPlanet[index]) {
 					let newFavArray = store.favorites;
-					newFavArray.push({ name: name, index: index });
+					newFavArray.push({ name: name, index: index, cardType: "planets" });
 					setStore({ favorites: newFavArray });
 					console.log("add");
 				} else {

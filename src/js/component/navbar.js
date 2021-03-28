@@ -38,6 +38,11 @@ export const Navbar = () => {
 									<a className="dropdown-item" href="#" key={index}>
 										{item.name}
 									</a>
+									/*<Link to={"/single/" + props.favStatus}>
+                                        <a href="#" className="btn btn-primary">
+                                            Details...
+						                </a>
+                                    </Link>*/
 								);
 							})}
 						</div>

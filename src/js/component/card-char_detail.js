@@ -12,6 +12,8 @@ const CharactersDetail = props => {
 					className="card-img-top"
 					src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/star-wars-characters-ranked-1577122930.jpg?crop=1.00xw:1.00xh;0,0&resize=980:*"
 					alt="Card image cap"
+					width="500"
+					height="600"
 				/>
 				<div className="card-body">
 					<h5 className="card-title">{store.characters[props.favStatus].name}</h5>

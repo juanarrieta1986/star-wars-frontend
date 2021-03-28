@@ -2,15 +2,15 @@ import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
-import CharactersDetail from "../component/card-char_detail";
+import PlanetsDetail from "../component/card-planets_detail";
 
-export const Single = props => {
+export const Single2 = props => {
 	const { store, actions } = useContext(Context);
 	const params = useParams();
 	console.log(store.planets);
-	return <CharactersDetail favStatus={params.theid} />;
+	return <PlanetsDetail favStatus={params.theid} />;
 };
 
-Single.propTypes = {
+Single2.propTypes = {
 	match: PropTypes.object
 };
