@@ -35,14 +35,13 @@ export const Navbar = () => {
 						<div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 							{store.favorites.map((item, index) => {
 								return (
-									<a className="dropdown-item" href="#" key={index}>
-										{item.name}
-									</a>
-									/*<Link to={"/single/" + props.favStatus}>
-                                        <a href="#" className="btn btn-primary">
-                                            Details...
-						                </a>
-                                    </Link>*/
+									<div key={index}>
+										<Link to={(item.cardType == "people" ? "/single/" : "/single2/") + item.index}>
+											<a className="dropdown-item" href="#">
+												{item.name}
+											</a>
+										</Link>
+									</div>
 								);
 							})}
 						</div>

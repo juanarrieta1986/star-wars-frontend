@@ -76,7 +76,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				//Section below will add/delete from favorites list
 				if (store.favChar[index]) {
 					let newFavArray = store.favorites;
-					newFavArray.push({ name: name, index: index, cardType: "characters" });
+					newFavArray.push({ name: name, index: index, cardType: "people" });
 					setStore({ favorites: newFavArray });
 					console.log("add");
 				} else {
